@@ -1,37 +1,17 @@
-
-# In-The-Wild Jailbreak Prompts on LLMs
+# Jailbreaking Large Language Models (LLMs)
 
 [![CCS: 2024](https://img.shields.io/badge/CCS-2024-red.svg)]()
-[![website: online](https://img.shields.io/badge/website-online-blue.svg)](https://jailbreak-llms.xinyueshen.me/)
-[![dataet: released](https://img.shields.io/badge/dataset-released-green.svg)](https://github.com/verazuo/jailbreak_llms/tree/main/data)
 [![license: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is the official repository for the ACM CCS 2024 paper ["Do Anything Now'': Characterizing and Evaluating In-The-Wild Jailbreak Prompts on Large Language Models](https://arxiv.org/abs/2308.03825) by [Xinyue Shen](https://xinyueshen.me/), [Zeyuan Chen](https://picodora.github.io/), [Michael Backes](https://michaelbackes.eu/), Yun Shen, and [Yang Zhang](https://yangzhangalmo.github.io/).
+This repository focuses on the exploration and evaluation of jailbreak prompts on Large Language Models (LLMs). Inspired by the ACM CCS 2024 paper ["Do Anything Now'': Characterizing and Evaluating In-The-Wild Jailbreak Prompts on Large Language Models](https://arxiv.org/abs/2308.03825) by Xinyue Shen, Zeyuan Chen, Michael Backes, Yun Shen, and Yang Zhang, this project aims to extend the analysis with additional datasets and methodologies. 
 
-In this project, employing our new framework JailbreakHub, we conduct the first measurement study on jailbreak prompts in the wild, with **15,140 prompts** collected from December 2022 to December 2023 (including **1,405 jailbreak prompts**).
-
-Check out our [website here](https://jailbreak-llms.xinyueshen.me/).
-
-**Disclaimer. This repo contains examples of harmful language. Reader discretion is recommended. This repo is intended for research purposes only. Any misuse is strictly prohibited.**
+The purpose of this project is to better understand the vulnerabilities of LLMs to adversarial prompts and to develop methods to mitigate these risks.
 
 ## Data
 
-## Prompts
-
-Overall, we collect 15,140 prompts from four platforms (Reddit, Discord, websites, and open-source datasets) during Dec 2022 to Dec 2023. Among these prompts, we identify 1,405 jailbreak prompts. To the best of our knowledge, this dataset serves as the largest collection of in-the-wild jailbreak prompts.
-
-The data are provided [here](https://github.com/verazuo/jailbreak_llms/tree/main/data).
-
-> Statistics of our data source. (Adv) UA refers to (adversarial) user accounts.
-
-# Jailbreak Prompts on Large Language Models (LLMs)
-
-## Overview
-This repository focuses on the analysis and evaluation of jailbreak prompts on large language models (LLMs). Using the data provided by the [ACM CCS 2024 paper](https://github.com/Tarun-1999M/Jailbreaking-LLM) titled *"Do Anything Now: Characterizing and Evaluating In-The-Wild Jailbreak Prompts on Large Language Models"*, we explore the impact of these prompts across various LLMs.
-
-## Data
 ### Prompts
-Our dataset includes 15,140 prompts collected from multiple platforms between December 2022 and December 2023. This dataset, curated by Xinyue Shen, Zeyuan Chen, Michael Backes, Yun Shen, and Yang Zhang, is the largest collection of in-the-wild jailbreak prompts to date. 
+
+This project utilizes a dataset of 15,140 prompts collected from multiple platforms between December 2022 and December 2023. The prompts were sourced from forums, social media, and other online platforms, including Reddit, Discord, and open-source datasets. Among these, 1,405 prompts were identified as jailbreak prompts. The dataset is curated to explore the effectiveness of these prompts in bypassing safety mechanisms in LLMs.
 
 
 | Platform  | Source                     | # Posts     | # UA      | # Adv UA | # Prompts  | # Jailbreaks | Prompt Time Range   |
@@ -55,53 +35,24 @@ Our dataset includes 15,140 prompts collected from multiple platforms between De
 
 
 
-
-## Question Set
-
-To evaluate the effectiveness of jailbreak prompts, we construct a question set comprising 390 questions across 13 forbidden scenarios adopted from [OpenAI Usage Policy](https://openai.com/policies/usage-policies).
-
-We exclude `Child Sexual Abuse` scenario from our evaluation and focus on the rest 13 scenarios, including `Illegal Activity`, `Hate Speech`, `Malware Generation`, `Physical Harm`, `Economic Harm`, `Fraud`, `Pornography`, `Political Lobbying`, `Privacy Violence`, `Legal Opinion`, `Financial Advice`, `Health Consultation`, and `Government Decision`.
-
-The question set is provided [here](https://github.com/verazuo/jailbreak_llms/tree/main/data). 
-
-## Code
-
-### Evaluator - ChatGLMEval
-
-```
-cd code/ChatGLMEval
-<!-- add data paths in df_path_list of run_evaluator.py -->
-python run_evaluator.py
-```
-
-### Semantics Visualization
-
-Check `code/semantics_visualization/visualize.ipynb`
-
-## Ethics
-We acknowledge that data collected online can contain personal information. Thus, we adopt standard best practices to guarantee that our study follows ethical principles, such as not trying to deanonymize any user and reporting results on aggregate. Since this study only involved publicly available data and had no interactions with participants, it is not regarded as human subjects research by our Institutional Review Boards (IRB). Nonetheless, since one of our goals is to measure the risk of LLMs in answering harmful questions, it is inevitable to disclose how a model can generate hateful content. This can bring up worries about potential misuse. However, we strongly believe that raising awareness of the problem is even more crucial, as it can inform LLM vendors and the research community to develop stronger safeguards and contribute to the more responsible release of these models.
-
-We have responsibly disclosed our findings to related LLM vendors.
-
-## Citation
-If you find this useful in your research, please consider citing:
-
-```
-=======
 ### Question Set
-The dataset is evaluated using a comprehensive question set containing 390 questions, focusing on 13 forbidden scenarios as outlined in the OpenAI Usage Policy. These scenarios include Illegal Activity, Hate Speech, Malware Generation, and more.
+
+A comprehensive question set comprising 390 questions was constructed to evaluate the effectiveness of the identified jailbreak prompts. These questions are categorized into 13 forbidden scenarios as defined by the [OpenAI Usage Policy](https://openai.com/policies/usage-policies), including but not limited to Illegal Activity, Hate Speech, Malware Generation, and Privacy Violence.
 
 ## Methodology
-Our approach builds upon the foundational data provided by the original authors. We employ advanced techniques to assess the effectiveness and robustness of jailbreak prompts across various large language models. This includes the use of customized evaluators, semantics visualization, and in-depth analysis of the collected data.
 
-## License
-This repository is licensed under the MIT License. See the LICENSE file for more details.
+The methodology of this project builds upon the foundational work presented in the original paper by Xinyue Shen and colleagues. Key enhancements and additional analyses are included to provide further insights into the robustness of LLMs against adversarial prompts.
 
-## Citation
-This work builds on the data and research conducted by Xinyue Shen, Zeyuan Chen, Michael Backes, Yun Shen, and Yang Zhang. If you use this dataset or research in your work, please cite the original authors:
+### Key Components:
 
-```bibtex
->>>>>>> 9311967d0657f4c6e22d1f355ce7cb9536e225cc
+- **Prompt Evaluation**: The project assesses the impact of various jailbreak prompts on multiple LLMs, quantifying their ability to bypass built-in safeguards.
+- **Semantic Analysis**: Advanced semantic visualization techniques are employed to understand the underlying patterns in the successful jailbreak prompts.
+- **Evaluator Development**: Customized evaluators have been developed to automate the analysis of prompt effectiveness across different scenarios.
+
+
+### Citation:
+If you find this work useful, please consider citing the original authors of the dataset and the foundational research:
+
 @inproceedings{SCBSZ24,
       author = {Xinyue Shen and Zeyuan Chen and Michael Backes and Yun Shen and Yang Zhang},
       title = {{``Do Anything Now'': Characterizing and Evaluating In-The-Wild Jailbreak Prompts on Large Language Models}},
@@ -109,11 +60,5 @@ This work builds on the data and research conducted by Xinyue Shen, Zeyuan Chen,
       publisher = {ACM},
       year = {2024}
 }
-
-```
-
-## License
-`jailbreak_llms` is licensed under the terms of the MIT license. See LICENSE for more details.
-
 
 
