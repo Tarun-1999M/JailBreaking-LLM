@@ -53,6 +53,7 @@ The methodology of this project builds upon the foundational work presented in t
 ### Citation:
 If you find this work useful, please consider citing the original authors of the dataset and the foundational research:
 
+```bibtex
 @inproceedings{SCBSZ24,
       author = {Xinyue Shen and Zeyuan Chen and Michael Backes and Yun Shen and Yang Zhang},
       title = {{``Do Anything Now'': Characterizing and Evaluating In-The-Wild Jailbreak Prompts on Large Language Models}},
